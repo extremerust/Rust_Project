@@ -143,7 +143,6 @@ fn view_summary() {
             if let Ok(expense) = Expense::from_csv_line(&line) {
                 total += expense.amount;
                 *category_totals.entry(expense.category.clone()).or_insert(0.0) += expense.amount ;
-
             }
         }
     }
@@ -153,5 +152,4 @@ fn view_summary() {
     for (category, amount) in category_totals {
         println!("{}: Tk{:.2}", category, amount) ;
     }
-
 }
